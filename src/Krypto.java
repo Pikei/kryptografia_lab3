@@ -19,7 +19,7 @@ public class Krypto {
         if(a.equals(b)){
             System.out.println("Są sobie równe.");
         } else {
-            System.out.println("Są różne od siebie.");
+            System.out.println("\nSą różne od siebie.");
         }
     }
 

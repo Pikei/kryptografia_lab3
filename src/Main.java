@@ -1,6 +1,6 @@
 import java.util.Scanner;
 public class Main {
-    private final static Scanner scanner = new Scanner(System.in);
+    private final static Scanner scanner = new Scanner(System.in).useDelimiter("\n");
     public static void main(String[] args) {
         boolean exit;
         do {
@@ -14,7 +14,10 @@ public class Main {
         System.out.println("2. Zapis z tablicy ASCII dla wybranego ciągu znaków.");
         System.out.println("3. Porównanie czy podane ciągi znaków są takie same.");
         System.out.println("4. Porównanie długości podanych ciągów znaków.");
-        System.out.println("5. Zamiana bitowa litery");
+        System.out.println("5. Wypisanie długości ciągu znaków.");
+        System.out.println("6. Zamiana bitowa litery");
+        System.out.println("7. Wyznaczenie liczb względnie pierwszych.");
+        System.out.println("8. Wygeneruj klucze.");
         System.out.println("0. Zamknij program.");
     }
 
@@ -46,8 +49,26 @@ public class Main {
                 krypto.textLength();
             }
             case "5" -> {
+                System.out.println("Podaj ciąg znaków: ");
+                String a = scanner.next();
+                System.out.println("Twój ciąg składa się z: " + a.length() + " znaków.\n");
+            }
+            case "6" -> {
                 Krypto krypto = new Krypto();
                 krypto.convertBinary();
+            }
+            case "7" -> {
+                System.out.println("Podaj liczbę do wyznaczenia liczb względnie pierwszych:");
+                Asymetryczne asymetryczne = new Asymetryczne(scanner.nextInt());
+                asymetryczne.printList();
+            }
+            case "8" -> {
+                System.out.println("Podaj tocjent:");
+                int t = scanner.nextInt();
+                System.out.println("Podaj liczbę q");
+                int q = scanner.nextInt();
+                Asymetryczne asymetryczne = new Asymetryczne(t, q);
+                asymetryczne.wygenerujKlucze();
             }
             case "0" -> {
                 System.out.println("Dowidzenia!");
